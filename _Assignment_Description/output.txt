@@ -1,0 +1,24 @@
+  7,00
+ -1,00
+  1,00
+ 12,00
+  0,75
+  1,33
+  3,00
+  1,00
+ 90,00
+ 23,00
+-17,00
+ 35,00
+ -5,00
+ 77,00
+ 54,00
+ 78,75
+ 94,50
+  5,00
+Exception: Divide by zero: 4,00/0,00
+Exception: Divide by zero: 4,00/0,00
+Exception: Invalid Operation
+Exception: Invalid token: A
+Exception: Invalid token: &
+  3,00
