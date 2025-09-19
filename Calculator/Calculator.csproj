@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RPN + Math\RPN + Math.csproj" />
+  </ItemGroup>
+
 </Project>
