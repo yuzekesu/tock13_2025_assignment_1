@@ -12,6 +12,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "View", "View", "{0258ADD6-1776-48B8-B66A-F38BBDFDE566}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Calculator.csproj", "{1A850402-A920-4153-9B4F-CB88E2B1846D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D76F6964-36CC-42C9-9949-A36B8FB8DF64} = {D76F6964-36CC-42C9-9949-A36B8FB8DF64}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
