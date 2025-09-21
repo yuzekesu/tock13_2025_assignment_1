@@ -112,7 +112,6 @@ namespace Calculator.View
         private static string EditInput_DiscardsRedundantSpaces(string row_input)
         {
             string processed_input = "";
-            string[] words = row_input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
             foreach (var current in row_input.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select((word, offset) => new {offset, word})) // this is stupid.
             {
                 if (current.offset == 0)
