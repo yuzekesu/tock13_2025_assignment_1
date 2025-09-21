@@ -6,6 +6,7 @@ namespace Console_IO_Program
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Debugging Console_IO:");
             bool running = true;
             while (running)
             {

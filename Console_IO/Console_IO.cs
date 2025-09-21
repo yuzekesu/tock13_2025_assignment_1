@@ -23,26 +23,32 @@ namespace Calculator.View
             Status status = Status.EMPTY;
             string? unhandled_input = null;
 
-            // start prompt
+            // start processing input
             unhandled_input = Console.ReadLine();
-            if (unhandled_input == null || VerifyInput_IsEmpty(unhandled_input)) 
+            if (unhandled_input == null || VerifyInput_IsEmpty(unhandled_input))
             {
                 // when no inputs
                 status = Status.EMPTY;
             }
-            else if (VerifyInput_HasAlphabets(unhandled_input, out char theInvalid)) 
-            {
-                // when inputs contain alphabets
-                status = Status.INVALID_INPUT;
-                user_input += theInvalid;
-            }
             else 
             {
-                // when inputs are valid (only operands and operators)
-                // we are not checking the logical validation here.
-                status = Status.VALID_INPUT;
-                user_input = unhandled_input;
-            }
+
+                // get rides of tabs and spaces
+                string processed_input = EditInput_FullCourse(unhandled_input);
+                if (VerifyInput_HasAlphabets(processed_input, out string theInvalid))
+                {
+                    // when inputs contain anything other than operator and operands
+                    status = Status.INVALID_INPUT;
+                    user_input = theInvalid;
+                }
+                else
+                {
+                    // when inputs are valid (only operands and operators)
+                    // we are not checking the logical validation here.
+                    status = Status.VALID_INPUT;
+                    user_input = processed_input;
+                }
+            } 
                 return status;
         }
         public static void PutOutput_Prompt()
@@ -51,7 +57,7 @@ namespace Calculator.View
         }
         public static void PutOutput_Result(double result_in_double)
         {
-            Console.WriteLine($"Result: {result_in_double}");
+            Console.WriteLine($"Result: {result_in_double:f2}");
         }
         // private methods:
         private static bool VerifyInput_IsEmpty(string input)
@@ -66,40 +72,77 @@ namespace Calculator.View
             }
             return isEmpty;
         }
-        private static bool VerifyInput_HasAlphabets(string input, out char theInvalid)
+        private static bool VerifyInput_HasAlphabets(string input, out string theInvalid)
         {
-            theInvalid = '\0';
+            theInvalid = "\0";
             bool hasAlphabets = false;
-            int temp_number;
-            foreach (char c in input)
+            double temp_number;
+            foreach (string s in input.Split(' ', StringSplitOptions.RemoveEmptyEntries))
             {
-                if (c != ' ' && c != '\n') {
-                    if (Int32.TryParse([c], out temp_number) || VerifyCharactor_IsOperand(c) || c == ',')
-                    {
-                        ;
-                    }
-                    else
-                    {
-                        theInvalid = c;
-                        hasAlphabets = true;
-                        break;
-                    }
-                } 
+                if (double.TryParse(s, out temp_number) || VerifyString_IsOperand(s))
+                {
+                    ;
+                }
+                else
+                {
+                    theInvalid = s;
+                    hasAlphabets = true;
+                    break;
+                }
             }
             return hasAlphabets;
         }
-        private static bool VerifyCharactor_IsOperand(char operand)
+        private static bool VerifyString_IsOperand(string operand)
         {
             bool isValid = false;
-            switch (operand)
+            if (operand.Length == 1)
             {
-                case '+': isValid = true; break;
-                case '-': isValid = true; break;
-                case '*': isValid = true; break;
-                case '/': isValid = true; break;
-                case '%': isValid = true; break;
-            }
+                switch (operand[0])
+                {
+                    case '+': isValid = true; break;
+                    case '-': isValid = true; break;
+                    case '*': isValid = true; break;
+                    case '/': isValid = true; break;
+                    case '%': isValid = true; break;
+                }
+            } 
+            
             return isValid;
+        }
+        private static string EditInput_DiscardsRedundantSpaces(string row_input)
+        {
+            string processed_input = "";
+            string[] words = row_input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            foreach (var current in row_input.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select((word, offset) => new {offset, word})) // this is stupid.
+            {
+                if (current.offset == 0)
+                {
+                    processed_input += current.word;
+                }
+                else
+                {
+                    processed_input += ' ';
+                    processed_input += current.word;
+                }
+            }
+            return processed_input;
+        }
+        private static string EditInput_DiscardsTabs(string row_input)
+        {
+            string processed_input = "";
+            foreach (char c in row_input)
+            {
+                if (c != '\t')
+                {
+                    processed_input += c;
+                }
+            }
+            return processed_input;
+        }
+        private static string EditInput_FullCourse(string row_input) 
+        {
+            // get rides of tabs and spaces
+            return EditInput_DiscardsRedundantSpaces(EditInput_DiscardsTabs(row_input));
         }
     }
 }

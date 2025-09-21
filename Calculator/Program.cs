@@ -10,7 +10,7 @@ namespace Calculator
     {
         static void Main(string[] args)
         {
-            CalculatorController.run();
+            CalculatorController.run(args);
         }
     }
 }

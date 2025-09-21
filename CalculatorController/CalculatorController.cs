@@ -10,7 +10,18 @@ namespace Calculator.Calculator
 {
     public class CalculatorController
     {
-        public static void run()
+        public static void run(string[] args)
+        {
+            if (args.Length == 0)
+            {
+                RunConsole();
+            }
+            else
+            {
+                ; // file IO
+            }
+        }
+        private static void RunConsole()
         {
             bool running = true;
             while (running)
@@ -23,7 +34,7 @@ namespace Calculator.Calculator
                         RPNCalc rpn = new RPNCalc();
                         CalcMath math = new CalcMath();
                         rpn.pushStack(user_input);
-                        Console.WriteLine($"Result = {math.Calculate(rpn):f2}");
+                        Console_IO.PutOutput_Result(math.Calculate(rpn));
                         break;
                     case Console_IO.Status.INVALID_INPUT:
                         Console.WriteLine($"InvalidTokenException: {user_input}");

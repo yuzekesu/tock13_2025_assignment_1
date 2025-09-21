@@ -1,10 +1,17 @@
-﻿namespace CalculatorController_Program
+﻿using Calculator.Calculator;
+
+namespace CalculatorController_Program
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Felfritt, ingen test behövs här i CalculatorController class !!!");
+            Console.WriteLine("Debugging CalculatorController:");
+            foreach (var current in args.Select((word, offset) => new { word, offset }))
+            {
+                Console.WriteLine(current);
+            }
+            CalculatorController.run(args);
         }
     }
 }
