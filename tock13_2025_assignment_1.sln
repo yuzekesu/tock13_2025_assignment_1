@@ -10,20 +10,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controller", "Controller", "{D1CC99E3-6D58-4053-97C2-F0AA87D693F9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "View", "View", "{0258ADD6-1776-48B8-B66A-F38BBDFDE566}"
-	ProjectSection(SolutionItems) = preProject
-		File_IO.cs = File_IO.cs
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Calculator.csproj", "{1A850402-A920-4153-9B4F-CB88E2B1846D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{D76F6964-36CC-42C9-9949-A36B8FB8DF64} = {D76F6964-36CC-42C9-9949-A36B8FB8DF64}
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exceptions", "Exceptions", "{15D337D8-353E-47A6-8634-060B5D8A294B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "File_IO", "FileIO_Exception\File_IO.csproj", "{BE343258-857B-4456-8FF3-013C78E36623}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileIO_proj", "FileIO_Exception\FileIO_proj.csproj", "{BE343258-857B-4456-8FF3-013C78E36623}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptions", "Exceptions\Exceptions.csproj", "{8F2AF911-8D9E-4212-9537-90850EEA3CE4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptions_proj", "Exceptions\Exceptions_proj.csproj", "{8F2AF911-8D9E-4212-9537-90850EEA3CE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
