@@ -13,7 +13,7 @@ namespace Calculator
             Calculator.Model.CalcMath math = new CalcMath();
 
             string[] input = new string[2];
-            input[0] = "3 4,8 5,7 + * 2,5 *";
+            input[0] = "3 4,8 5,7 + * W *";
             input[1] = "239 100 4 2 / 5 6 + * - %";
 
             for (int i = 0; i < input.Length; i++)
