@@ -32,7 +32,7 @@ namespace Calculator.Calculator
                 {
                     case Console_IO.Status.VALID_INPUT:
                         RPNCalc rpn = new RPNCalc(user_input);
-                        Console_IO.PutOutput_Result(CalcMath.Calculate(rpn).Number);
+                        Console_IO.PutOutput_Result(CalcMath.PreCalc(rpn));
                         break;
                     case Console_IO.Status.INVALID_INPUT:
                         Console.WriteLine($"InvalidTokenException: {user_input}");
