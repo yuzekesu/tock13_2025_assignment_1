@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,38 +9,53 @@ namespace Calculator.Model
 {
     public class RPNCalc
     {
-        //RPNCalc innehåller 2 stacks. Main och second.
-        internal Stack<string> stackMain = new Stack<string>();
-        internal Stack<string> stackSecond = new Stack<string>();
+        //RPNCalc 
+        internal Stack<Token> stack = new Stack<Token>();
 
-        //Properties till stackMain
-        public Stack<string> StackMain
+
+
+        public RPNCalc(string input)
         {
-            get { return stackMain; }
-            set { stackMain = value; }
+            this.stack = pushStack(input);
         }
 
-        //Properties till stackSecond
-        public Stack<string> StackSecond
+        public Stack<Token> pushStack(string input)
         {
-            get { return stackSecond; }
-            set { stackSecond = value; }
-        }
-
-        public RPNCalc()
-        {
-        }
-
-        public void pushStack(string input)
-        {
+            Stack<Token> tempStack = new Stack<Token>();
             var tokens = input.Split(' ');
 
-            //push alla tokens till main stacken
-            //Kan göra om tokensen till egna classer (Operands och Operators)
             foreach (var token in tokens)
             {
-                this.stackMain.Push(token);
+                switch (token)
+                {
+                    case "+":
+                        SumOperator opSum = new SumOperator();
+                        tempStack.Push(opSum);
+                        break;
+                    case "-":
+                        SubtractOperator opSub = new SubtractOperator();
+                        tempStack.Push(opSub);
+                        break;
+                    case "*":
+                        MultiplyOperator opMul = new MultiplyOperator();
+                        tempStack.Push(opMul);
+                        break;
+                    case "/":
+                        DivideOperator opDiv = new DivideOperator();
+                        tempStack.Push(opDiv);
+                        break;
+                    case "%":
+                        ModulusOperator opMod = new ModulusOperator();
+                        tempStack.Push(opMod);
+                        break;
+                    default:
+                        Operand operand = new Operand(Convert.ToDouble(token));
+                        tempStack.Push(operand);
+                        break;
+                }
             }
+            return tempStack;
+
         }
 
     }

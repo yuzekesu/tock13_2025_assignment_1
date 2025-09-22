@@ -31,10 +31,8 @@ namespace Calculator.Calculator
                 switch (status)
                 {
                     case Console_IO.Status.VALID_INPUT:
-                        RPNCalc rpn = new RPNCalc();
-                        CalcMath math = new CalcMath();
-                        rpn.pushStack(user_input);
-                        Console_IO.PutOutput_Result(math.Calculate(rpn));
+                        RPNCalc rpn = new RPNCalc(user_input);
+                        Console_IO.PutOutput_Result(CalcMath.Calculate(rpn).Number);
                         break;
                     case Console_IO.Status.INVALID_INPUT:
                         Console.WriteLine($"InvalidTokenException: {user_input}");
