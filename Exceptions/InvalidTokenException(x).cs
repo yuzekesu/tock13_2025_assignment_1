@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Exceptions_proj
 {
-    internal class Exceptions
+    public class InvalidTokenException
     {
+        public string Token { get; }
+        public InvalidTokenException(string token) : base($"Invalid token: {token}");
     }
 }
