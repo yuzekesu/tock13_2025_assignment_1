@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console_IO", "Console_IO\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorController", "CalculatorController\CalculatorController.csproj", "{DCFA847A-0265-4266-99EC-C1135C4D2F23}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO", "IO\IO.csproj", "{3786192B-EB8B-4D6A-B956-B8E100ED76B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{DCFA847A-0265-4266-99EC-C1135C4D2F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCFA847A-0265-4266-99EC-C1135C4D2F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCFA847A-0265-4266-99EC-C1135C4D2F23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3786192B-EB8B-4D6A-B956-B8E100ED76B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3786192B-EB8B-4D6A-B956-B8E100ED76B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3786192B-EB8B-4D6A-B956-B8E100ED76B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3786192B-EB8B-4D6A-B956-B8E100ED76B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +72,7 @@ Global
 		{8F2AF911-8D9E-4212-9537-90850EEA3CE4} = {15D337D8-353E-47A6-8634-060B5D8A294B}
 		{91D5B065-2E9E-4BB4-A3D7-92879279E35B} = {0258ADD6-1776-48B8-B66A-F38BBDFDE566}
 		{DCFA847A-0265-4266-99EC-C1135C4D2F23} = {D1CC99E3-6D58-4053-97C2-F0AA87D693F9}
+		{3786192B-EB8B-4D6A-B956-B8E100ED76B5} = {0258ADD6-1776-48B8-B66A-F38BBDFDE566}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7542A9E9-6E4C-4645-BAAA-6579B24EDC7B}

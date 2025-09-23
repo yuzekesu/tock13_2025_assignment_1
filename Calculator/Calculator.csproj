@@ -10,8 +10,8 @@
   <ItemGroup>
     <ProjectReference Include="..\CalculatorController\CalculatorController.csproj" />
     <ProjectReference Include="..\Console_IO\Console_IO.csproj" />
-    <ProjectReference Include="..\Exceptions\Exceptions_proj.csproj" />
     <ProjectReference Include="..\FileIO_Exception\FileIO_proj.csproj" />
+    <ProjectReference Include="..\IO\IO.csproj" />
     <ProjectReference Include="..\RPN + Math\RPN + Math.csproj" />
   </ItemGroup>
 
