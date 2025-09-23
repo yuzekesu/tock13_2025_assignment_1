@@ -1,4 +1,4 @@
-﻿namespace IO
+﻿namespace IO_Program
 {
     internal class Program
     {

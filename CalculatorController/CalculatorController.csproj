@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Console_IO\Console_IO.csproj" />
+    <ProjectReference Include="..\IO\IO.csproj" />
     <ProjectReference Include="..\RPN + Math\RPN + Math.csproj" />
   </ItemGroup>
 

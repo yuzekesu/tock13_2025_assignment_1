@@ -8,7 +8,13 @@ namespace Calculator.View
 {
     public class IO
     {
-        // private methods:
+        public enum Status
+        {
+            VALID_INPUT,
+            INVALID_INPUT,
+            EMPTY
+        }
+        // protected methods:
         protected static bool VerifyInput_IsEmpty(string input)
         {
             bool isEmpty = true;

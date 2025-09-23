@@ -16,9 +16,9 @@ namespace Calculator.Calculator
             {
                 RunConsole();
             }
-            else
+            else if (args.Length == 2)
             {
-                ; // file IO
+                RunFile(args[0], args[1]);
             }
         }
         private static void RunConsole()
@@ -27,20 +27,63 @@ namespace Calculator.Calculator
             while (running)
             {
                 Console_IO.PutOutput_Prompt();
-                Console_IO.Status status = Console_IO.GetInput(out string user_input);
+                IO.Status status = Console_IO.GetInput(out string user_input);
                 switch (status)
                 {
-                    case Console_IO.Status.VALID_INPUT:
+                    case IO.Status.VALID_INPUT:
                         RPNCalc rpn = new RPNCalc(user_input);
-                        Console_IO.PutOutput_Result(CalcMath.PreCalc(rpn));
+                        try
+                        {
+                            Console_IO.PutOutput_Result(CalcMath.PreCalc(rpn));
+                        }
+                        catch (Exception e) // change this when Exception_proj is finished
+                        {
+                            Console.WriteLine(e.Message);
+                        }
                         break;
-                    case Console_IO.Status.INVALID_INPUT:
+                    case IO.Status.INVALID_INPUT:
                         Console.WriteLine($"InvalidTokenException: {user_input}");
                         break;
-                    case Console_IO.Status.EMPTY:
+                    case IO.Status.EMPTY:
                         Console.WriteLine("The user exited the application");
                         running = false;
                         break;
+                }
+            }
+        }
+        private static void RunFile(string file_input, string file_output)
+        {
+            bool running = true;
+            using (StreamReader sReader = File.OpenText(file_input))
+            {
+                using (StreamWriter sWriter = File.CreateText(file_output))
+                {
+                    while (running)
+                    {
+                        // no prompt for file IO
+                        IO.Status status = Console_IO.GetInput(out string user_input);
+                        switch (status)
+                        {
+                            case IO.Status.VALID_INPUT:
+                                RPNCalc rpn = new RPNCalc(user_input);
+                                try
+                                {
+                                    // File_IO.PutOutput_Result(CalcMath.PreCalc(rpn));
+                                }
+                                catch (Exception e) // change this when Exception_proj is finished
+                                {
+                                    sWriter.WriteLine(e.Message);
+                                }
+                                break;
+                            case IO.Status.INVALID_INPUT:
+                                sWriter.WriteLine($"InvalidTokenException: {user_input}");
+                                break;
+                            case IO.Status.EMPTY:
+                                // nothing needs to be prompt here for file IO
+                                running = false;
+                                break;
+                        }
+                    }
                 }
             }
         }

@@ -9,12 +9,7 @@ namespace Calculator.View
 {
     public class Console_IO : IO
     {
-        public enum Status
-        {
-            VALID_INPUT,
-            INVALID_INPUT,
-            EMPTY
-        }
+        
         // public methods:
         public static Status GetInput(out string user_input)
         {
