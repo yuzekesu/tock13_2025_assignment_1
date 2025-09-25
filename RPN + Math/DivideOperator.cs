@@ -13,7 +13,7 @@ namespace Calculator.Model
         {
             if (right.Number == 0)
             {
-                throw new DivideByZeroException($"DivideByZeroException: {left.Number}/{right.Number}");
+                throw new DivideByZeroException($"DivideByZeroException: {left.Number:f2}/{right.Number:f2}");
             }
             return new Operand(left.Number / right.Number);
         }
