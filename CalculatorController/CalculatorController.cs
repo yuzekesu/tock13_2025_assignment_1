@@ -61,16 +61,16 @@ namespace Calculator.Calculator
                     while (running)
                     {
                         // no prompt for file IO
-                        IO.Status status = Console_IO.GetInput(out string user_input);
+                        IO.Status status = File_IO.GetInput(sReader, out string user_input);
                         switch (status)
                         {
                             case IO.Status.VALID_INPUT:
                                 RPNCalc rpn = new RPNCalc(user_input);
                                 try
                                 {
-                                    // File_IO.PutOutput_Result(CalcMath.PreCalc(rpn));
+                                    File_IO.PutOutput_Result(sWriter, CalcMath.PreCalc(rpn));
                                 }
-                                catch (Exception e) // change this when Exception_proj is finished
+                                catch (Exception e)
                                 {
                                     sWriter.WriteLine(e.Message);
                                 }
