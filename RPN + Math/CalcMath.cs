@@ -15,8 +15,7 @@ namespace Calculator.Model
 
             if (r.stack.Count() != 0)
             {
-                // add throw - currently returns 0 where it would have thrown
-                result = 0;
+                throw new InvalidOperationException("InvalidOperationException");
             }
 
             return result;
@@ -24,6 +23,11 @@ namespace Calculator.Model
         public static Operand Calculate(RPNCalc r)
         {
             
+            if (r.stack.Count() == 0)
+            {
+                throw new InvalidOperationException("InvalidOperationException");
+            }
+
             Token first = r.stack.Pop();
             Operand result;
 

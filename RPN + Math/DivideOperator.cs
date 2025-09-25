@@ -11,6 +11,10 @@ namespace Calculator.Model
         public DivideOperator() { }
         public override Operand OpCalc(Operand right, Operand left)
         {
+            if (right.Number == 0)
+            {
+                throw new DivideByZeroException($"DivideByZeroException: {left.Number}/{right.Number}");
+            }
             return new Operand(left.Number / right.Number);
         }
 
