@@ -2,6 +2,7 @@
 using System;
 using System.Globalization;
 
+/*
 namespace FileIO_Exception
 {
     internal class RPN_Test
@@ -140,6 +141,18 @@ namespace FileIO_Exception
                     writer.WriteLine($"Exception: {e.Message}");
                 }
             }
+        }
+    }
+}
+*/
+
+namespace FileIO_proj
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World!");
         }
     }
 }

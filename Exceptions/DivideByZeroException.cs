@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace Exceptions_proj
 {
-    public class DivideByZeroException
+    public class DivideByZeroException : Exception
     {
         public double Left { get; }
         public double Right { get; }
-        public DivideByZeroException(double left, double right) : base("Attempted to divide by zero.") { Left = left; Right = right; }
+        public DivideByZeroException(double left, double right) : base("Attempted to divide by zero.") { 
+            Left = left; 
+            Right = right; 
+        }
 
     }
 }
