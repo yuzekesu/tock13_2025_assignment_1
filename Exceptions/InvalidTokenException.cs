@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exceptions_proj
+namespace CalculatorException
 {
     public class InvalidTokenException : Exception
     {
@@ -12,6 +12,12 @@ namespace Exceptions_proj
         public InvalidTokenException(string token) : base($"Invalid token: {token}")
         {
             Token = token;
+        }
+
+
+        public void PutOutPut_InvalidToken()
+        {
+            Console.WriteLine($"InvalidTokenException: {Token}");
         }
     }
 }
