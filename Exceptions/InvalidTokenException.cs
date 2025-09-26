@@ -9,15 +9,9 @@ namespace CalculatorException
     public class InvalidTokenException : Exception
     {
         public string Token { get; }
-        public InvalidTokenException(string token) : base($"Invalid token: {token}")
+        public InvalidTokenException(string token) : base($"InvalidTokenException:  {token}")
         {
             Token = token;
-        }
-
-
-        public void PutOutPut_InvalidToken()
-        {
-            Console.WriteLine($"InvalidTokenException: {Token}");
         }
     }
 }

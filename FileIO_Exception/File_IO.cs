@@ -49,6 +49,12 @@ namespace Calculator.View
         {
             sw.WriteLine(message);
         }
+        
+        //InvalidTokenException output
+        public void PutOutPut_InvalidToken()
+        {
+            Console.WriteLine($"InvalidTokenException: {Token}");
+        }
 
         //This code implements "using StreamReader" and "using StreamWriter" so the input and output are always disposed
         //No memory leaks :)
