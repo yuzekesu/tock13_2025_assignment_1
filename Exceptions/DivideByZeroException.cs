@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CalculatorException
 {
-    public class DivideByZeroException : Exception
+    public class DivideByZeroException : System.Exception
     {
         public double Left { get; }
         public double Right { get; }

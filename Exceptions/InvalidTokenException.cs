@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CalculatorException
+namespace Calculator.Exceptions
 {
-    public class InvalidTokenException : Exception
+    public class InvalidTokenException : System.Exception
     {
         public string Token { get; }
         public InvalidTokenException(string token) : base($"InvalidTokenException:  {token}")
         {
             Token = token;
         }
+
     }
 }
