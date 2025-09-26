@@ -54,6 +54,17 @@ namespace Calculator.View
         {
             Console.WriteLine($"Result: {result_in_double:f2}");
         }
-
+        public void PutOutput_InvalidToken(string the_invalid) 
+        {
+            Console.WriteLine($"InvalidTokenException: {the_invalid}");
+        }
+        public void PutOutput_Exception(Exception e) 
+        { 
+            Console.WriteLine(e.Message);
+        }
+        public void PutOutput_exit()
+        {
+            Console.WriteLine("The user exited the application");
+        }
     }
 }

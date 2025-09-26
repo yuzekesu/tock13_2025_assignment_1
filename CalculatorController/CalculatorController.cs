@@ -43,14 +43,14 @@ namespace Calculator.Calculator
                         }
                         catch (Exception e) // change this when Exception_proj is finished
                         {
-                            Console.WriteLine(e.Message);
+                            consoleIO.PutOutput_Exception(e);
                         }
                         break;
                     case IO.Status.INVALID_INPUT:
-                        Console.WriteLine($"InvalidTokenException: {user_input}");
+                        consoleIO.PutOutput_InvalidToken(user_input);
                         break;
                     case IO.Status.EMPTY:
-                        Console.WriteLine("The user exited the application");
+                        consoleIO.PutOutput_exit();
                         running = false;
                         break;
                 }
