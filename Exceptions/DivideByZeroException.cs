@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CalculatorException
+namespace Calculator.Exceptions
 {
     public class DivideByZeroException : System.Exception
     {
