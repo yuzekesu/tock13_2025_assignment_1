@@ -8,17 +8,14 @@ namespace Calculator.Model
 {
     public class Operand : Token
     {
-        private double number;
-
         public double Number
         {
-            get { return number; }
-            set { number = value; }
+            get; set;
         }
 
         public Operand(double value)
         {
-            this.number = value;
+            Number = value;
         }
 
         public override string ToString()
