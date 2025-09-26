@@ -31,13 +31,10 @@ namespace Calculator.Model
             Token first = r.stack.Pop();
             Operand result;
 
-            switch (first)
+            switch (first)  
             {
-                case SumOperator:
-                case SubtractOperator:
-                case MultiplyOperator:
-                case DivideOperator:
-                case ModulusOperator:
+                //Does not care of which specific subclass of operator that first consists of (polymorphism)
+                case Operator:
                     Operand right = CalcMath.Calculate(r);
                     Operand left = CalcMath.Calculate(r);
                     result = ((Operator)first).OpCalc(right, left);
