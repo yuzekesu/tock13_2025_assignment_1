@@ -10,7 +10,7 @@ namespace Exceptions_proj
     {
         public double Left { get; }
         public double Right { get; }
-        public DivideByZeroException(double left, double right) : base("Attempted to divide by zero.") { 
+        public DivideByZeroException(double left, double right) : base("DivideByZeroException: ") { 
             Left = left; 
             Right = right; 
         }
