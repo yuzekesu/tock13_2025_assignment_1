@@ -51,9 +51,9 @@ namespace Calculator.View
         }
         
         //InvalidTokenException output
-        public void PutOutPut_InvalidToken()
+        public void PutOutPut_InvalidToken(StreamWriter sw, string token)
         {
-            Console.WriteLine($"InvalidTokenException: {Token}");
+            sw.WriteLine($"InvalidTokenException: {Token}");
         }
 
         //This code implements "using StreamReader" and "using StreamWriter" so the input and output are always disposed
