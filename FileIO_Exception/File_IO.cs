@@ -45,7 +45,7 @@ namespace Calculator.View
         }
 
         //This line of code writes an error message if needed in the output
-        public static void PutOutput_Message(StreamWriter sw, string message)
+        public void PutOutput_Message(StreamWriter sw, string message)
         {
             sw.WriteLine(message);
         }
