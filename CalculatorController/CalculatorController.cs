@@ -32,9 +32,10 @@ namespace Calculator.Calculator
                 {
                     case IO.Status.VALID_INPUT:
                         RPNCalc rpn = new RPNCalc(user_input);
+                        CalcMath Calculator = new CalcMath();
                         try
                         {
-                            Console_IO.PutOutput_Result(CalcMath.PreCalc(rpn));
+                            Console_IO.PutOutput_Result(Calculator.PreCalc(rpn));
                         }
                         catch (Exception e) // change this when Exception_proj is finished
                         {
@@ -66,9 +67,10 @@ namespace Calculator.Calculator
                         {
                             case IO.Status.VALID_INPUT:
                                 RPNCalc rpn = new RPNCalc(user_input);
+                                CalcMath Calculator = new CalcMath();
                                 try
                                 {
-                                    File_IO.PutOutput_Result(sWriter, CalcMath.PreCalc(rpn));
+                                    File_IO.PutOutput_Result(sWriter, Calculator.PreCalc(rpn));
                                 }
                                 catch (Exception e)
                                 {
