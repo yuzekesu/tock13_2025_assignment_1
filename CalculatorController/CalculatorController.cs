@@ -78,11 +78,11 @@ namespace Calculator.Calculator
                                 }
                                 catch (Exception e)
                                 {
-                                    sWriter.WriteLine(e.Message);
+                                    fileIO.PutOutput_Message(sWriter, e.Message);
                                 }
                                 break;
                             case IO.Status.INVALID_INPUT:
-                                sWriter.WriteLine($"InvalidTokenException: {user_input}");
+                                fileIO.PutOutPut_InvalidToken(sWriter, user_input);
                                 break;
                             case IO.Status.EMPTY:
                                 // nothing needs to be prompt here for file IO
