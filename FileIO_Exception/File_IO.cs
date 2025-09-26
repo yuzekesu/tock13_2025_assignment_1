@@ -15,8 +15,8 @@ namespace Calculator.View
         //Reads the input with StreamReader and draws a conclusion based on the if-statement
         //If the input is blank, it returns Status.EMPTY
         //If the input has a token that is not allowed, it returns Status.INVALID_INPUT
-        //If the input is acceptable, it returns Statys.VALID_INPUT
-        public static Status GetInput(StreamReader sr, out string user_input)
+        //If the input is acceptable, it returns Status.VALID_INPUT
+        public Status GetInput(StreamReader sr, out string user_input)
         {
             user_input = string.Empty;
 
@@ -39,7 +39,7 @@ namespace Calculator.View
 
         //This line of code writes two decimal places after a double so it fits the output criteria
         //This way the output becomes for example "10.00" instead of "10"
-        public static void PutOutput_Result(StreamWriter sw, double result)
+        public void PutOutput_Result(StreamWriter sw, double result)
         {
             sw.WriteLine($"{result:F2}");
         }
@@ -52,7 +52,7 @@ namespace Calculator.View
 
         //This code implements "using StreamReader" and "using StreamWriter" so the input and output are always disposed
         //No memory leaks :)
-        public static void WithFiles(string inputPath, string outputPath, Action<StreamReader, StreamWriter> work)
+        public void WithFiles(string inputPath, string outputPath, Action<StreamReader, StreamWriter> work)
         {
             using (StreamReader sReader = File.OpenText(inputPath))
             using (StreamWriter sWriter = File.CreateText(outputPath))
