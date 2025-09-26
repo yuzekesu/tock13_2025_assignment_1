@@ -11,7 +11,7 @@ namespace Calculator.View
     {
         
         // public methods:
-        public static Status GetInput(out string user_input)
+        public Status GetInput(out string user_input)
         {
             // initialization
             user_input = "";
@@ -46,11 +46,11 @@ namespace Calculator.View
             } 
                 return status;
         }
-        public static void PutOutput_Prompt()
+        public void PutOutput_Prompt()
         {
             Console.Write("Enter an RPN expression <return> (empty string = exit):");
         }
-        public static void PutOutput_Result(double result_in_double)
+        public void PutOutput_Result(double result_in_double)
         {
             Console.WriteLine($"Result: {result_in_double:f2}");
         }

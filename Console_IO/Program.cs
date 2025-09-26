@@ -7,11 +7,12 @@ namespace Console_IO_Program
         static void Main(string[] args)
         {
             Console.WriteLine("Debugging Console_IO:");
+            Console_IO consoleIO = new();
             bool running = true;
             while (running)
             {
-                Console_IO.PutOutput_Prompt();
-                Console_IO.Status status = Console_IO.GetInput(out string user_input);
+                consoleIO.PutOutput_Prompt();
+                Console_IO.Status status = consoleIO.GetInput(out string user_input);
                 switch (status) 
                 {
                     case Console_IO.Status.VALID_INPUT:

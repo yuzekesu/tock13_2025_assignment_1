@@ -10,32 +10,36 @@ namespace Calculator.Calculator
 {
     public class CalculatorController
     {
-        public static void run(string[] args)
+        // attributs
+        private Console_IO consoleIO = new();
+        private File_IO fileIO = new();
+        private CalcMath Calculator = new();
+        // methods
+        public static void run(string[] args, CalculatorController controller)
         {
             if (args.Length == 0)
             {
-                RunConsole();
+                controller.RunConsole();
             }
             else if (args.Length == 2)
             {
-                RunFile(args[0], args[1]);
+                controller.RunFile(args[0], args[1]);
             }
         }
-        private static void RunConsole()
+        private void RunConsole()
         {
             bool running = true;
             while (running)
             {
-                Console_IO.PutOutput_Prompt();
-                IO.Status status = Console_IO.GetInput(out string user_input);
+                consoleIO.PutOutput_Prompt();
+                IO.Status status = consoleIO.GetInput(out string user_input);
                 switch (status)
                 {
                     case IO.Status.VALID_INPUT:
                         RPNCalc rpn = new RPNCalc(user_input);
-                        CalcMath Calculator = new CalcMath();
                         try
                         {
-                            Console_IO.PutOutput_Result(Calculator.PreCalc(rpn));
+                            consoleIO.PutOutput_Result(Calculator.PreCalc(rpn));
                         }
                         catch (Exception e) // change this when Exception_proj is finished
                         {
@@ -52,7 +56,7 @@ namespace Calculator.Calculator
                 }
             }
         }
-        private static void RunFile(string file_input, string file_output)
+        private void RunFile(string file_input, string file_output)
         {
             bool running = true;
             using (StreamReader sReader = File.OpenText(file_input))
@@ -62,7 +66,7 @@ namespace Calculator.Calculator
                     while (running)
                     {
                         // no prompt for file IO
-                        IO.Status status = File_IO.GetInput(sReader, out string user_input);
+                        IO.Status status = fileIO.GetInput(sReader, out string user_input);
                         switch (status)
                         {
                             case IO.Status.VALID_INPUT:
@@ -70,7 +74,7 @@ namespace Calculator.Calculator
                                 CalcMath Calculator = new CalcMath();
                                 try
                                 {
-                                    File_IO.PutOutput_Result(sWriter, Calculator.PreCalc(rpn));
+                                    fileIO.PutOutput_Result(sWriter, Calculator.PreCalc(rpn));
                                 }
                                 catch (Exception e)
                                 {
