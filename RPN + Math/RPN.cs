@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Calculator.Model
 {
-    public class RPNCalc
+    public class TokenStack
     {
         //RPNCalc 
         internal Stack<Token> stack = new Stack<Token>();
 
 
 
-        public RPNCalc(string input)
+        public TokenStack(string input)
         {
             this.stack = pushStack(input);
         }

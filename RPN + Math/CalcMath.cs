@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Calculator.Model
 {
-    public class CalcMath
+    public class RPNCalculator
     {
         //PreCalc used to check if there is still some Operands/Operatons inside stack before we return the result
-        public double PreCalc(RPNCalc r)
+        public double PreCalc(TokenStack r)
         {
 
             double result = Calculate(r).Number;
@@ -22,7 +22,7 @@ namespace Calculator.Model
 
             return result;
         }
-        public Operand Calculate(RPNCalc r)
+        public Operand Calculate(TokenStack r)
         {
             //Exception, if stack is empty and we still try to calculate then throw.
             if (r.stack.Count() == 0)
@@ -31,7 +31,7 @@ namespace Calculator.Model
             }
 
             //Instance of class CalcMath used to nestle the calculation process
-            CalcMath nestledLoop = new CalcMath();
+            RPNCalculator nestledLoop = new RPNCalculator();
 
             //First - Token which we currently use
             Token first = r.stack.Pop();

@@ -13,7 +13,7 @@ namespace Calculator.Calculator
         // attributs
         private Console_IO consoleIO = new();
         private File_IO fileIO = new();
-        private CalcMath Calculator = new();
+        private RPNCalculator Calculator = new();
         // methods
         public static void run(string[] args, CalculatorController controller)
         {
@@ -36,7 +36,7 @@ namespace Calculator.Calculator
                 switch (status)
                 {
                     case IO.Status.VALID_INPUT:
-                        RPNCalc rpn = new RPNCalc(user_input);
+                        TokenStack rpn = new TokenStack(user_input);
                         try
                         {
                             consoleIO.PutOutput_Result(Calculator.PreCalc(rpn));
@@ -70,8 +70,7 @@ namespace Calculator.Calculator
                         switch (status)
                         {
                             case IO.Status.VALID_INPUT:
-                                RPNCalc rpn = new RPNCalc(user_input);
-                                CalcMath Calculator = new CalcMath();
+                                TokenStack rpn = new TokenStack(user_input);
                                 try
                                 {
                                     fileIO.PutOutput_Result(sWriter, Calculator.PreCalc(rpn));
