@@ -10,7 +10,7 @@ namespace Calculator.Exceptions
     {
         public double Left { get; }
         public double Right { get; }
-        public DivideByZeroException(double left, double right) : base("DivideByZeroException: ") { 
+        public DivideByZeroException(double left, double right) : base($"DivideByZeroException: {left:f2}/{right:f2}") { 
             Left = left; 
             Right = right; 
         }
