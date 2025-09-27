@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Calculator.Exceptions;
+using DivideByZeroException = Calculator.Exceptions.DivideByZeroException;
 
 namespace Calculator.Model
 {
@@ -14,7 +16,7 @@ namespace Calculator.Model
         {
             if (right.Number == 0)
             {
-                throw new DivideByZeroException($"DivideByZeroException: {left.Number:f2}/{right.Number:f2}");
+                throw new DivideByZeroException(left.Number, right.Number);
             }
 
             return new Operand(left.Number % right.Number);
