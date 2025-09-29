@@ -10,22 +10,22 @@ namespace Calculator.Model
     public class RPNCalculator
     {
         //PreCalc used to check if there is still some Operands/Operatons inside stack before we return the result
-        public double PreCalc(TokenStack r)
+        public double PreCalc(ITokenStack r)
         {
 
             double result = Calculate(r).Number;
 
-            if (r.stack.Count() != 0)
+            if (r.Count() != 0)
             {
                 throw new InvalidOperationException("InvalidOperationException");
             }
 
             return result;
         }
-        public Operand Calculate(TokenStack r)
+        public Operand Calculate(ITokenStack r)
         {
             //Exception, if stack is empty and we still try to calculate then throw.
-            if (r.stack.Count() == 0)
+            if (r.Count() == 0)
             {
                 throw new InvalidOperationException("InvalidOperationException");
             }
@@ -34,7 +34,7 @@ namespace Calculator.Model
             RPNCalculator nestledLoop = new RPNCalculator();
 
             //First - Token which we currently use
-            Token first = r.stack.Pop();
+            Token first = r.Pop();
             Operand result;
 
             

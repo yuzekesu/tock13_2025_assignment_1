@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Calculator.Model
 {
-    public class TokenStack
+    public class TokenStack : ITokenStack
     {
         //RPNCalc 
-        internal Stack<Token> stack = new Stack<Token>();
+        private Stack<Token> stack = new Stack<Token>();
 
 
 
@@ -58,5 +58,19 @@ namespace Calculator.Model
 
         }
 
+        public void Push(Token token)
+        {
+            this.stack.Push(token);
+        }
+
+        public Token Pop()
+        {
+            return this.stack.Pop();
+        }
+
+        public int Count()
+        {
+            return this.stack.Count;
+        }
     }
 }

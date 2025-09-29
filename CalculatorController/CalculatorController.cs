@@ -36,7 +36,7 @@ namespace Calculator.Calculator
                 switch (status)
                 {
                     case IO.Status.VALID_INPUT:
-                        TokenStack rpn = new TokenStack(user_input);
+                        ITokenStack rpn = new TokenStack(user_input);
                         try
                         {
                             consoleIO.PutOutput_Result(Calculator.PreCalc(rpn));
