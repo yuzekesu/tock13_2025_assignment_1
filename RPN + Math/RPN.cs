@@ -7,21 +7,24 @@ using System.Threading.Tasks;
 
 namespace Calculator.Model
 {
-    public class TokenStack
+    /// <summary>
+    /// Represents a class that can stack a stack of tokens
+    /// </summary>
+    public class TokenStack : ITokenStack
     {
-        //RPNCalc 
+        /// <summary>
+        /// The stack which stores Operators and Operands.
+        /// </summary>        
         internal Stack<Token> stack = new Stack<Token>();
 
 
-
+        /// <summary>
+        /// Constructor for TokenStack which accepts a string as a parameter.
+        /// The construtor splits the input string and pushes a Operator or Operand on to the stack
+        /// </summary>
+        /// <param name="input">A string containing numbers and operators</param>
         public TokenStack(string input)
         {
-            this.stack = pushStack(input);
-        }
-
-        public Stack<Token> pushStack(string input)
-        {
-            Stack<Token> tempStack = new Stack<Token>();
             var tokens = input.Split(' ');
 
             foreach (var token in tokens)
@@ -29,33 +32,41 @@ namespace Calculator.Model
                 switch (token)
                 {
                     case "+":
-                        SumOperator opSum = new SumOperator();
-                        tempStack.Push(opSum);
+                        stack.Push(new SumOperator());
                         break;
                     case "-":
-                        SubtractOperator opSub = new SubtractOperator();
-                        tempStack.Push(opSub);
+                        stack.Push(new SubtractOperator());
                         break;
                     case "*":
-                        MultiplyOperator opMul = new MultiplyOperator();
-                        tempStack.Push(opMul);
+                        stack.Push(new MultiplyOperator());
                         break;
                     case "/":
-                        DivideOperator opDiv = new DivideOperator();
-                        tempStack.Push(opDiv);
+                        stack.Push(new DivideOperator());
                         break;
                     case "%":
-                        ModulusOperator opMod = new ModulusOperator();
-                        tempStack.Push(opMod);
+                        stack.Push(new ModulusOperator());
                         break;
                     default:
-                        Operand operand = new Operand(Convert.ToDouble(token));
-                        tempStack.Push(operand);
+                        stack.Push(new Operand(Convert.ToDouble(token)));
                         break;
                 }
             }
-            return tempStack;
+        }
 
+        //Add comments to Push, Pop and Count
+        public void Push(Token token)
+        {
+            stack.Push(token);
+        }
+
+        public Token Pop()
+        {
+            return stack.Pop();
+        }
+
+        public int Count()
+        {
+            return stack.Count();
         }
 
     }

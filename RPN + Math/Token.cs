@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Calculator.Model
 {
+    /// <summary>
+    /// A abstract class representing a token
+    /// </summary>
     public abstract class Token
     {
 
