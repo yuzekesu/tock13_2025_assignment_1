@@ -28,12 +28,12 @@ namespace Calculator.View
 
             if(InputLine.HasAlphabets(out string invalid))
             {
-                user_input = invalid;
+                userInput = invalid;
                 return Status.INVALID;
             }
 
-            user_input = InputLine.ProcessedLine;
-            return Status.VALID_INPUT;
+            userInput = InputLine.ProcessedLine;
+            return Status.VALID;
         }
 
         //This line of code writes two decimal places after a double so it fits the output criteria

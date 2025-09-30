@@ -12,7 +12,7 @@ namespace Calculator.Calculator
     {
         // attributs
         private ConsoleIO consoleIO = new();
-        private File_IO fileIO = new();
+        private FileIO fileIO = new();
         private RPNCalculator Calculator = new();
         // methods
         /// <summary>
@@ -87,15 +87,15 @@ namespace Calculator.Calculator
                                 ITokenStack rpn = new TokenStack(user_input);
                                 try
                                 {
-                                    fileIO.PutOutput_Result(sWriter, Calculator.PreCalc(rpn));
+                                    fileIO.PutOutputResult(sWriter, Calculator.PreCalc(rpn));
                                 }
                                 catch (Exception e)
                                 {
-                                    fileIO.PutOutput_Message(sWriter, e.Message);
+                                    fileIO.PutOutputMessage(sWriter, e.Message);
                                 }
                                 break;
                             case IO.Status.INVALID:
-                                fileIO.PutOutPut_InvalidToken(sWriter, user_input);
+                                fileIO.PutOutPutInvalidToken(sWriter, user_input);
                                 break;
                             case IO.Status.EMPTY:
                                 // nothing needs to be prompt here for file IO
