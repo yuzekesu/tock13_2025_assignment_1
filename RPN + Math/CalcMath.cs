@@ -54,17 +54,19 @@ namespace Calculator.Model
             {
                 //Does not care of which specific subclass of operator that first consists of (polymorphism)
                 //If "first" is a operator then call CalcMath method again to get the right and left operand
-                case Operator:
+                case Operator o1:
                     Operand right = nestledLoop.Calculate(tokenStack);
                     Operand left = nestledLoop.Calculate(tokenStack);
-                    result = ((Operator)first).OpCalc(right, left);
+                    result = o1.OpCalc(right, left);
                     break;
 
                 //If the poped token "first" is a operand then return it
                 //Will become a left or right operand if this occurs in a nestled CalcMath call
-                default:
-                    result = (Operand)first;
+                case Operand o2:
+                    result = o2;
                     break;
+                default:
+                    throw new InvalidOperationException("InvalidOperationException");
             }
 
             return result;
