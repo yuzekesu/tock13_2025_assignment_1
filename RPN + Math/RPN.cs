@@ -22,7 +22,7 @@ namespace Calculator.Model
         /// Constructor for TokenStack which accepts a string as a parameter.
         /// The construtor splits the input string and pushes a Operator or Operand on to the stack
         /// </summary>
-        /// <param name="input">A string containing numbers and operators</param>
+        /// <param name="input"> A string containing numbers and operators </param>
         public TokenStack(string input)
         {
             var tokens = input.Split(' ');

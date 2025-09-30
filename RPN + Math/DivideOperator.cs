@@ -17,9 +17,9 @@ namespace Calculator.Model
         /// Method that does division on two operands.
         /// Overrides the method OpCalc in class Operator
         /// </summary>
-        /// <param name="right">The right operand to the operator</param>
-        /// <param name="left"><The left operand to the operator/param>
-        /// <returns>A operator with the result of the operand</returns>
+        /// <param name="right"> The right operand to the operator </param>
+        /// <param name="left"> The left operand to the operator </param>
+        /// <returns> A operator with the result of the operand </returns>
         public override Operand OpCalc(Operand right, Operand left)
         {
             if (right.Number == 0)
@@ -32,7 +32,7 @@ namespace Calculator.Model
         /// <summary>
         /// Method that returns division operator as a character
         /// </summary>
-        /// <returns>The string form of a division operator</returns>
+        /// <returns> The string form of a division operator </returns>
         public override string ToString() => "/";
     }
 }

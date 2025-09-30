@@ -22,7 +22,7 @@ namespace Calculator.Model
         /// <summary>
         /// Constructor that sets the number of the operand
         /// </summary>
-        /// <param name="value">The operands value</param>
+        /// <param name="value"> The operands value </param>
         public Operand(double value)
         {
             Number = value;
@@ -31,7 +31,7 @@ namespace Calculator.Model
         /// <summary>
         /// This method changes the operands number into a string
         /// </summary>
-        /// <returns>The operands number in string form</returns>
+        /// <returns> The operands number in string form </returns>
         public override string ToString()
         {
             return Number.ToString();
