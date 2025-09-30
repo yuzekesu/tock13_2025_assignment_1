@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Calculator.View
 {
-    public class Console_IO : IO
+    public class ConsoleIO : IO
     {
         // public methods:
         /// <summary>
@@ -47,23 +47,23 @@ namespace Calculator.View
             } 
                 return status;
         }
-        public void PutOutput_Prompt()
+        public void AskInput()
         {
             Console.Write("Enter an RPN expression <return> (empty string = exit):");
         }
-        public void PutOutput_Result(double result_in_double)
+        public void WriteResult(double result_in_double)
         {
             Console.WriteLine($"Result: {result_in_double:f2}");
         }
-        public void PutOutput_InvalidToken(string the_invalid) 
+        public void WriteInvalidToken(string the_invalid) 
         {
             Console.WriteLine($"InvalidTokenException: {the_invalid}");
         }
-        public void PutOutput_Exception(Exception e) 
+        public void WriteException(Exception e) 
         { 
             Console.WriteLine(e.Message);
         }
-        public void PutOutput_exit()
+        public void WriteExit()
         {
             Console.WriteLine("The user exited the application");
         }

@@ -11,7 +11,7 @@ namespace Calculator.Calculator
     public class CalculatorController
     {
         // attributs
-        private Console_IO consoleIO = new();
+        private ConsoleIO consoleIO = new();
         private File_IO fileIO = new();
         private RPNCalculator Calculator = new();
         // methods
@@ -39,7 +39,7 @@ namespace Calculator.Calculator
             bool running = true;
             while (running)
             {
-                consoleIO.PutOutput_Prompt();
+                consoleIO.AskInput();
                 IO.Status status = consoleIO.GetInput(out string user_input);
                 switch (status)
                 {
@@ -47,18 +47,18 @@ namespace Calculator.Calculator
                         ITokenStack rpn = new TokenStack(user_input);
                         try
                         {
-                            consoleIO.PutOutput_Result(Calculator.PreCalc(rpn));
+                            consoleIO.WriteResult(Calculator.PreCalc(rpn));
                         }
                         catch (Exception e) 
                         {
-                            consoleIO.PutOutput_Exception(e);
+                            consoleIO.WriteException(e);
                         }
                         break;
                     case IO.Status.INVALID_INPUT:
-                        consoleIO.PutOutput_InvalidToken(user_input);
+                        consoleIO.WriteInvalidToken(user_input);
                         break;
                     case IO.Status.EMPTY:
-                        consoleIO.PutOutput_exit();
+                        consoleIO.WriteExit();
                         running = false;
                         break;
                 }
