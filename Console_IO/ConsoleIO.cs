@@ -34,14 +34,14 @@ namespace Calculator.View
                 if (InputLine.HasAlphabets(out string theInvalid))
                 {
                     // when inputs contain anything other than operator and operands
-                    status = Status.INVALID_INPUT;
+                    status = Status.INVALID;
                     user_input = theInvalid;
                 }
                 else
                 {
                     // when inputs are valid (only operands and operators)
                     // we are not checking the logical validation here.
-                    status = Status.VALID_INPUT;
+                    status = Status.VALID;
                     user_input = InputLine.ProcessedLine;
                 }
             } 

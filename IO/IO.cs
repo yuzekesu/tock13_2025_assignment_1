@@ -14,8 +14,8 @@ namespace Calculator.View
 
         public enum Status
         {
-            VALID_INPUT,
-            INVALID_INPUT,
+            VALID,
+            INVALID,
             EMPTY
         }
         protected LineFormatter InputLine { get; set; } = new();

@@ -43,7 +43,7 @@ namespace Calculator.Calculator
                 IO.Status status = consoleIO.GetInput(out string user_input);
                 switch (status)
                 {
-                    case IO.Status.VALID_INPUT:
+                    case IO.Status.VALID:
                         ITokenStack rpn = new TokenStack(user_input);
                         try
                         {
@@ -54,7 +54,7 @@ namespace Calculator.Calculator
                             consoleIO.WriteException(e);
                         }
                         break;
-                    case IO.Status.INVALID_INPUT:
+                    case IO.Status.INVALID:
                         consoleIO.WriteInvalidToken(user_input);
                         break;
                     case IO.Status.EMPTY:
@@ -83,7 +83,7 @@ namespace Calculator.Calculator
                         IO.Status status = fileIO.GetInput(sReader, out string user_input);
                         switch (status)
                         {
-                            case IO.Status.VALID_INPUT:
+                            case IO.Status.VALID:
                                 ITokenStack rpn = new TokenStack(user_input);
                                 try
                                 {
@@ -94,7 +94,7 @@ namespace Calculator.Calculator
                                     fileIO.PutOutput_Message(sWriter, e.Message);
                                 }
                                 break;
-                            case IO.Status.INVALID_INPUT:
+                            case IO.Status.INVALID:
                                 fileIO.PutOutPut_InvalidToken(sWriter, user_input);
                                 break;
                             case IO.Status.EMPTY:

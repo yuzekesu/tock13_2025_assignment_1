@@ -15,10 +15,10 @@ namespace Console_IO_Program
                 ConsoleIO.Status status = consoleIO.GetInput(out string user_input);
                 switch (status) 
                 {
-                    case ConsoleIO.Status.VALID_INPUT:
+                    case ConsoleIO.Status.VALID:
                         Console.WriteLine(user_input); 
                         break;
-                    case ConsoleIO.Status.INVALID_INPUT:
+                    case ConsoleIO.Status.INVALID:
                         Console.WriteLine($"InvalidTokenException: {user_input}");
                         break;
                     case ConsoleIO.Status.EMPTY:
