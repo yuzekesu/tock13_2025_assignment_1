@@ -9,10 +9,6 @@ namespace Calculator.View
 {
     public class Console_IO : IO
     {
-        // "if you are having too many static classes in the assignment, then you are doing a object-oriented programming" -- Lucy
-        // so our straight forward solution was to erase the "static" keyword from the methods ;)
-        // okey Lucy you are right im going to change it now.
-
         // public methods:
         /// <summary>
         /// get a line from the standard input buffer.
@@ -22,13 +18,12 @@ namespace Calculator.View
         public Status GetInput(out string user_input)
         {
             // initialization
-            user_input = "";
+            InputLine.NewLine(Console.ReadLine());
+            user_input = string.Empty;
             Status status = Status.EMPTY;
-            string? unhandled_input = null;
 
             // start processing input
-            unhandled_input = Console.ReadLine();
-            if (unhandled_input == null || VerifyInput_IsEmpty(unhandled_input))
+            if (InputLine.IsEmpty())
             {
                 // when no inputs
                 status = Status.EMPTY;
@@ -36,9 +31,7 @@ namespace Calculator.View
             else 
             {
 
-                // get rides of tabs and spaces
-                string processed_input = EditInput_FullCourse(unhandled_input);
-                if (VerifyInput_HasAlphabets(processed_input, out string theInvalid))
+                if (InputLine.HasAlphabets(out string theInvalid))
                 {
                     // when inputs contain anything other than operator and operands
                     status = Status.INVALID_INPUT;
@@ -49,7 +42,7 @@ namespace Calculator.View
                     // when inputs are valid (only operands and operators)
                     // we are not checking the logical validation here.
                     status = Status.VALID_INPUT;
-                    user_input = processed_input;
+                    user_input = InputLine.ProcessedLine;
                 }
             } 
                 return status;

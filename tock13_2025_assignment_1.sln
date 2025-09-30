@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO", "IO\IO.csproj", "{3786
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Exceptions", "Exceptions\Calculator.Exceptions.csproj", "{A1E0DDEC-A418-4009-7ACB-0891A8E7ADFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LineFormatter", "LineFormatter\LineFormatter.csproj", "{386909E1-F8AD-4EC4-B17C-791C3980DC22}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{A1E0DDEC-A418-4009-7ACB-0891A8E7ADFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1E0DDEC-A418-4009-7ACB-0891A8E7ADFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1E0DDEC-A418-4009-7ACB-0891A8E7ADFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{386909E1-F8AD-4EC4-B17C-791C3980DC22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{386909E1-F8AD-4EC4-B17C-791C3980DC22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{386909E1-F8AD-4EC4-B17C-791C3980DC22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{386909E1-F8AD-4EC4-B17C-791C3980DC22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

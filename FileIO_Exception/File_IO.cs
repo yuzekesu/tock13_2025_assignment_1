@@ -20,20 +20,19 @@ namespace Calculator.View
         {
             user_input = string.Empty;
 
-            string? unhandled = sr.ReadLine();
-            if(unhandled == null || VerifyInput_IsEmpty(unhandled))
+            InputLine.NewLine(sr.ReadLine());
+            if(InputLine.IsEmpty())
             {
                 return Status.EMPTY;
             }
 
-            string processed = EditInput_FullCourse(unhandled);
-            if(VerifyInput_HasAlphabets(processed, out string invalid))
+            if(InputLine.HasAlphabets(out string invalid))
             {
                 user_input = invalid;
                 return Status.INVALID_INPUT;
             }
 
-            user_input = processed;
+            user_input = InputLine.ProcessedLine;
             return Status.VALID_INPUT;
         }
 

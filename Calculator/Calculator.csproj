@@ -13,6 +13,7 @@
     <ProjectReference Include="..\Exceptions\Calculator.Exceptions.csproj" />
     <ProjectReference Include="..\FileIO_Exception\FileIO_proj.csproj" />
     <ProjectReference Include="..\IO\IO.csproj" />
+    <ProjectReference Include="..\LineFormatter\LineFormatter.csproj" />
     <ProjectReference Include="..\RPN + Math\RPN + Math.csproj" />
   </ItemGroup>
 
