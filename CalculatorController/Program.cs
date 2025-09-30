@@ -12,7 +12,7 @@ namespace CalculatorController_Program
             {
                 Console.WriteLine(current);
             }
-            CalculatorController.run(args, controller);
+            CalculatorController.Run(args, controller);
         }
     }
 }

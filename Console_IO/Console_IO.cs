@@ -9,8 +9,16 @@ namespace Calculator.View
 {
     public class Console_IO : IO
     {
-        
+        // "if you are having too many static classes in the assignment, then you are doing a object-oriented programming" -- Lucy
+        // so our straight forward solution was to erase the "static" keyword from the methods ;)
+        // okey Lucy you are right im going to change it now.
+
         // public methods:
+        /// <summary>
+        /// get a line from the standard input buffer.
+        /// </summary>
+        /// <param name="user_input"></param>
+        /// <returns>the return does not contain any tabs or extra spaces</returns>
         public Status GetInput(out string user_input)
         {
             // initialization

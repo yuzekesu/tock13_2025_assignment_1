@@ -12,7 +12,7 @@ namespace Calculator_Program
         static void Main(string[] args)
         {
             CalculatorController controller = new CalculatorController();
-            CalculatorController.run(args, controller);
+            CalculatorController.Run(args, controller);
         }
     }
 }

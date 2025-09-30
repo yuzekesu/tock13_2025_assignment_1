@@ -15,7 +15,12 @@ namespace Calculator.Calculator
         private File_IO fileIO = new();
         private RPNCalculator Calculator = new();
         // methods
-        public static void run(string[] args, CalculatorController controller)
+        /// <summary>
+        /// Runs the program
+        /// </summary>
+        /// <param name="args"></param>
+        /// <param name="controller"></param>
+        public static void Run(string[] args, CalculatorController controller)
         {
             if (args.Length == 0)
             {
@@ -26,6 +31,9 @@ namespace Calculator.Calculator
                 controller.RunFile(args[0], args[1]);
             }
         }
+        /// <summary>
+        /// Do the RPN through the console
+        /// </summary>
         private void RunConsole()
         {
             bool running = true;
@@ -41,7 +49,7 @@ namespace Calculator.Calculator
                         {
                             consoleIO.PutOutput_Result(Calculator.PreCalc(rpn));
                         }
-                        catch (Exception e) // change this when Exception_proj is finished
+                        catch (Exception e) 
                         {
                             consoleIO.PutOutput_Exception(e);
                         }
@@ -56,6 +64,12 @@ namespace Calculator.Calculator
                 }
             }
         }
+        /// <summary>
+        /// Do the RPN throw the file.
+        /// The "file_input" must be a existing file
+        /// </summary>
+        /// <param name="file_input"></param>
+        /// <param name="file_output"></param>
         private void RunFile(string file_input, string file_output)
         {
             bool running = true;

@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Calculator.View
 {
+    /// <summary>
+    /// C style static methods that can be shared between Console_IO and File_IO.
+    /// </summary>
     public class IO
     {
+        
         public enum Status
         {
             VALID_INPUT,
@@ -15,6 +19,13 @@ namespace Calculator.View
             EMPTY
         }
         // protected methods:
+        // a good naming is the comment itself ;)
+        // i know "_" is not accepted in c#, but why !?
+        // ok, it is my fault, a "Input" class would solve the problem of underscore.
+        // exemple: Input i = new("   my    input "); String proccessedInput = i.ProccessedInput;
+        // now we no longer need the "VeryifyInput" part here.
+        // but it is too late now when everything is done ;(
+        // plz let us pass <3 ~
         protected static bool VerifyInput_IsEmpty(string input)
         {
             bool isEmpty = true;
