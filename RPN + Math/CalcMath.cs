@@ -43,7 +43,7 @@ namespace Calculator.Model
             }
 
             //Instance of class CalcMath used to nestle the calculation process
-            RPNCalculator nestledLoop = new RPNCalculator();
+            RPNCalculator nestedLoop = new RPNCalculator();
 
             //First - Token which we currently use
             Token first = tokenStack.Pop();
@@ -55,8 +55,8 @@ namespace Calculator.Model
                 //Does not care of which specific subclass of operator that first consists of (polymorphism)
                 //If "first" is a operator then call CalcMath method again to get the right and left operand
                 case Operator o1:
-                    Operand right = nestledLoop.Calculate(tokenStack);
-                    Operand left = nestledLoop.Calculate(tokenStack);
+                    Operand right = nestedLoop.Calculate(tokenStack);
+                    Operand left = nestedLoop.Calculate(tokenStack);
                     result = o1.OpCalc(right, left);
                     break;
 
