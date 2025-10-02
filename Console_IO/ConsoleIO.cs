@@ -47,22 +47,40 @@ namespace Calculator.View
             } 
                 return status;
         }
+        /// <summary>
+        /// asking for the user input in the console
+        /// </summary>
         public void AskInput()
         {
             Console.Write("Enter an RPN expression <return> (empty string = exit):");
         }
+        /// <summary>
+        /// output the result
+        /// </summary>
+        /// <param name="result_in_double"></param>
         public void WriteResult(double result_in_double)
         {
             Console.WriteLine($"Result: {result_in_double:f2}");
         }
+        /// <summary>
+        /// output message for InvalidTokenException
+        /// </summary>
+        /// <param name="the_invalid">the part of string that is invalid</param>
         public void WriteInvalidToken(string the_invalid) 
         {
             Console.WriteLine($"InvalidTokenException: {the_invalid}");
         }
+        /// <summary>
+        /// output exceptions
+        /// </summary>
+        /// <param name="e"></param>
         public void WriteException(Exception e) 
         { 
             Console.WriteLine(e.Message);
         }
+        /// <summary>
+        /// prompt exit message
+        /// </summary>
         public void WriteExit()
         {
             Console.WriteLine("The user exited the application");

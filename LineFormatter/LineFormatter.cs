@@ -68,7 +68,7 @@ namespace Calculator.View
             return hasAlphabets;
         }
         // private: 
-        private bool IsOperand(string operand)
+        private static bool IsOperand(string operand)
         {
             bool isValid = false;
             if (operand.Length == 1)

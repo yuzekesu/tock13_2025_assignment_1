@@ -12,10 +12,12 @@ namespace Calculator.View
     //The File IO class for the calculator
     public class FileIO : IO
     {
-        //Reads the input with StreamReader and draws a conclusion based on the if-statement
-        //If the input is blank, it returns Status.EMPTY
-        //If the input has a token that is not allowed, it returns Status.INVALID_INPUT
-        //If the input is acceptable, it returns Status.VALID_INPUT
+        /// <summary>
+        /// Reads the input with StreamReader.
+        /// </summary>
+        /// <param name="sr"></param>
+        /// <param name="userInput"></param>
+        /// <returns>If the input is blank, it returns Status.EMPTY. If the input has a token that is not allowed, it returns Status.INVALID_INPUTIf the input is acceptable, it returns Status.VALID_INPUT</returns>
         public Status GetInput(StreamReader sr, out string userInput)
         {
             userInput = string.Empty;
@@ -36,27 +38,42 @@ namespace Calculator.View
             return Status.VALID;
         }
 
-        //This line of code writes two decimal places after a double so it fits the output criteria
-        //This way the output becomes for example "10.00" instead of "10"
+        /// <summary>
+        /// Output the result.
+        /// </summary>
+        /// <param name="sw"></param>
+        /// <param name="result"></param>
         public void PutOutputResult(StreamWriter sw, double result)
         {
             sw.WriteLine($"{result:F2}");
         }
 
-        //This line of code writes an error message if needed in the output
+        /// <summary>
+        /// output message
+        /// </summary>
+        /// <param name="sw"></param>
+        /// <param name="message"></param>
         public void PutOutputMessage(StreamWriter sw, string message)
         {
             sw.WriteLine(message);
         }
-        
-        //InvalidTokenException output
+
+        /// <summary>
+        /// Output InvalidTokenException
+        /// </summary>
+        /// <param name="sw"></param>
+        /// <param name="token"></param>
         public void PutOutPutInvalidToken(StreamWriter sw, string token)
         {
             sw.WriteLine($"InvalidTokenException: {token}");
         }
 
-        //This code implements "using StreamReader" and "using StreamWriter" so the input and output are always disposed
-        //No memory leaks :)
+        /// <summary>
+        /// Wrapper
+        /// </summary>
+        /// <param name="inputPath"></param>
+        /// <param name="outputPath"></param>
+        /// <param name="work"></param>
         public void WithFiles(string inputPath, string outputPath, Action<StreamReader, StreamWriter> work)
         {
             using (StreamReader sReader = File.OpenText(inputPath))
