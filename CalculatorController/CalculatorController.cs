@@ -28,7 +28,19 @@ namespace Calculator.Calculator
             }
             else if (args.Length == 2)
             {
-                controller.RunFile(args[0], args[1]);
+                try
+                {
+                    controller.RunFile(args[0], args[1]);
+                }
+                catch (Exception e)
+                {
+                    // TO William, here is inside of a static method, cant use consoleIO methods here.
+                    Console.WriteLine(e.Message);
+                }
+            }
+            else 
+            {
+                Console.WriteLine("Syntax: Calculator [{0}]", System.IO.Directory.GetCurrentDirectory());
             }
         }
         /// <summary>
